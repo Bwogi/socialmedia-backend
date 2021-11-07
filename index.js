@@ -6,8 +6,11 @@ const helmet = require('helmet');
 const dotenv = require('dotenv');
 
 
+dotenv.config(); // its ready to use to hide secret keys
 
-dotenv.config();
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true }, () => {
+    console.log("Backend Server connected to MongoDB Atlas...")
+})
 
 const PORT = process.env.PORT || 8800; // the port to connect to
 
