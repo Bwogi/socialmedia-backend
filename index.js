@@ -20,6 +20,10 @@ app.use(morgan("common"));
 //routes
 app.get('/', (req, res) => {
     res.send("Welcome to homepage")
+});
+
+app.get('/users', (req, res) => {
+    res.send("Welcome to users page")
 })
 
 const PORT = process.env.PORT || 8800; // the port to connect to
