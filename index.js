@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const dotenv = require('dotenv');
 const userRouter = require('./routes/users')
 const resultsRouter = require('./routes/results')
+const authRouter = require('./routes/auth')
 
 
 dotenv.config(); // its ready to use to hide secret keys
@@ -23,12 +24,12 @@ app.use(morgan("common"));
 // app.get('/', (req, res) => {
 //     res.send("Welcome to homepage")
 // });
-
 // app.get('/users', (req, res) => {
 //     res.send("Welcome to users page")
 // });
 app.use("/api/users", userRouter);
 app.use("/api/results", resultsRouter);
+app.use("/api/auth", authRouter);
 
 const PORT = process.env.PORT || 8800; // the port to connect to
 app.listen(PORT, () => console.log(`Backend server connected on http://localhost:${PORT}`))
